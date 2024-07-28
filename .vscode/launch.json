@@ -1,0 +1,12 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "function_macros example",
+      "cwd": "packages/function_macros/example",
+      "request": "launch",
+      "program": "function_macros_example.dart",
+      "type": "dart"
+    }
+  ]
+}

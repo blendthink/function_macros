@@ -1,0 +1,31 @@
+name: function_macros
+
+sdkPath: .fvm/flutter_sdk
+
+command:
+  bootstrap:
+    environment:
+      sdk: ^3.5.0-323.1.beta
+      flutter: ^3.24.0-0.1.pre
+    dependencies:
+      flutter:
+        sdk: flutter
+    dev_dependencies:
+      flutter_test:
+        sdk: flutter
+
+packages:
+  - packages/**
+
+scripts:
+  test:
+    exec: dart test
+    packageFilters:
+      dependsOn: test
+      dirExists: test
+
+ide:
+  intellij:
+    # Disabling IntelliJ's automatic configuration.
+    # This is to support different build configurations for environments.
+    enabled: false

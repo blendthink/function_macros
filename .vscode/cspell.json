@@ -1,0 +1,22 @@
+{
+  "words": [
+    "bools",
+    "combinators",
+    "dartdocs",
+    "fvmrc",
+    "intellij",
+    "interps",
+    "ints",
+    "jqlang",
+    "leoafarias",
+    "mikefarah",
+    "pubspec",
+    "redeclares",
+    "tearoffs",
+    "todos",
+    "unawaited"
+  ],
+  "ignorePaths": [
+    "LICENSE"
+  ]
+}

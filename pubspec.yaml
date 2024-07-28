@@ -1,0 +1,6 @@
+name: function_macros_workspace
+
+environment:
+  sdk: ^3.5.0-323.1.beta
+dev_dependencies:
+  melos: ^6.1.0
