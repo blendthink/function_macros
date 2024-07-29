@@ -6,7 +6,8 @@
       "cwd": "packages/function_macros/example",
       "request": "launch",
       "program": "function_macros_example.dart",
-      "type": "dart"
+      "type": "dart",
+      "toolArgs": ["--enable-experiment=macros"]
     }
   ]
 }
