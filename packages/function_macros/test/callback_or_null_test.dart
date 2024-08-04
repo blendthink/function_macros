@@ -9,7 +9,7 @@ void main() {
       final result = sample.callbackOrNull('a', 'b');
       expect(result, isNull);
     });
-    
+
     test('Result is callback', () {
       sample = (
         String a, [
@@ -29,7 +29,7 @@ void main() {
       final result = sample.callbackOrNull('a', b: 'b');
       expect(result, isNull);
     });
-    
+
     test('Result is callback', () {
       sample = (
         String a, {
@@ -49,7 +49,7 @@ void main() {
       final result = sample.callbackOrNull('a');
       expect(result, isNull);
     });
-    
+
     test('Result is callback', () {
       sample = (
         String a,
