@@ -1,4 +1,4 @@
-import 'package:function_macros/callback_or_null.dart';
+import 'package:function_macros/callback.dart';
 import 'package:test/test.dart';
 
 void main() {
