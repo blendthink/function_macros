@@ -30,10 +30,10 @@ macro class Callback implements FunctionTypesMacro {
       throw DiagnosticException(diagnostic);
     }
 
-    final originalFunctionName = function.identifier.name;
-    final functionName = '${originalFunctionName.toCamelCase}Function';
-    final callBackName = '${originalFunctionName.toCamelCase}Callback';
-    final extensionName = '${functionName}Callback';
+    final originalFunctionNameCamelCase = function.identifier.name.toCamelCase;
+    final functionName = '${originalFunctionNameCamelCase}Function';
+    final callBackName = '${originalFunctionNameCamelCase}Callback';
+    final extensionName = '${originalFunctionNameCamelCase}FunctionCallback';
 
     final returnTypeCode = function.returnType.code;
 
