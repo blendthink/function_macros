@@ -33,7 +33,7 @@ macro class CallbackOrNull implements FunctionTypesMacro {
     final originalFunctionName = function.identifier.name;
     final functionName = '${originalFunctionName.toCamelCase}Function';
     final callBackName = '${originalFunctionName.toCamelCase}Callback';
-    final extensionName = '${callBackName}OrNull';
+    final extensionName = '${functionName}CallbackOrNull';
 
     final returnTypeCode = function.returnType.code;
 
