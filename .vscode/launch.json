@@ -2,10 +2,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "function_macros example",
+      "name": "CallbackOrNull example",
       "cwd": "packages/function_macros/example",
       "request": "launch",
-      "program": "function_macros_example.dart",
+      "program": "callback_or_null_example.dart",
       "type": "dart",
       "toolArgs": ["--enable-experiment=macros"]
     }

@@ -1,6 +1,6 @@
 // ignore_for_file: avoid_print
 
-import 'package:function_macros/function_macros.dart';
+import 'package:function_macros/callback_or_null.dart';
 
 @CallbackOrNull()
 external String sampleA(

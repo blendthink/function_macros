@@ -10,16 +10,20 @@ command:
     dependencies:
       flutter:
         sdk: flutter
+      macros: ^0.1.2-main.4
     dev_dependencies:
+      _fe_analyzer_shared: ^73.0.0
+      analyzer: ^6.8.0
       flutter_test:
         sdk: flutter
+      test: ^1.25.8
 
 packages:
   - packages/**
 
 scripts:
   test:
-    exec: dart test
+    exec: dart --enable-experiment=macros test
     packageFilters:
       dependsOn: test
       dirExists: test
