@@ -20,6 +20,16 @@ macro class CallbackOrNull implements FunctionTypesMacro {
       throw DiagnosticException(diagnostic);
     }
 
+    if (function.typeParameters.isNotEmpty) {
+      final diagnostic = Diagnostic(
+        DiagnosticMessage(
+          '''The @CallbackOrNull() macro does not support functions with type parameters.''',
+        ),
+        Severity.error,
+      );
+      throw DiagnosticException(diagnostic);
+    }
+
     final originalFunctionName = function.identifier.name;
     final functionName = '${originalFunctionName.toCamelCase}Function';
     final callBackName = '${originalFunctionName.toCamelCase}Callback';
