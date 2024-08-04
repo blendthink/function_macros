@@ -13,7 +13,7 @@ macro class CallbackOrNull implements FunctionTypesMacro {
     if (!function.hasExternal) {
       final diagnostic = Diagnostic(
         DiagnosticMessage(
-          'The @CallbackOrNull() macro can only be used on external functions.'
+          'The @CallbackOrNull() macro can only be used on external functions.',
         ),
         Severity.error,
       );
@@ -21,9 +21,9 @@ macro class CallbackOrNull implements FunctionTypesMacro {
     }
 
     final originalFunctionName = function.identifier.name;
-    final functionName = originalFunctionName.toCamelCase + 'Function';
-    final callBackName = originalFunctionName.toCamelCase + 'Callback';
-    final extensionName = callBackName + 'OrNull';
+    final functionName = '${originalFunctionName.toCamelCase}Function';
+    final callBackName = '${originalFunctionName.toCamelCase}Callback';
+    final extensionName = '${callBackName}OrNull';
 
     final returnTypeCode = function.returnType.code;
 
@@ -62,7 +62,8 @@ macro class CallbackOrNull implements FunctionTypesMacro {
     return () => tmp
 ''',
         function.buildArgumentsCodeForInput,
-''';
+'''
+;
 ''',
 '''
   }
@@ -81,7 +82,7 @@ extension _CamelCase on String {
     
     final firstText = this[0];
     if (length == 1) {
-      if (!firstText.contains(RegExp(r'[a-zA-Z]'))) {
+      if (!firstText.contains(RegExp('[a-zA-Z]'))) {
         throw FormatException('Invalid character: $this');
       }
       return toUpperCase();
@@ -89,7 +90,7 @@ extension _CamelCase on String {
     
     if (firstText == '_') {
       final secondText = this[1];
-      return '_' + secondText.toUpperCase() + substring(2);
+      return '_${secondText.toUpperCase()}${substring(2)}';
     }
 
     return firstText.toUpperCase() + substring(1);
