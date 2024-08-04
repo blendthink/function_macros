@@ -57,26 +57,20 @@ macro class Callback implements FunctionTypesMacro {
       ]),
     );
 
-    builder.declareType(
-      extensionName,
-      DeclarationCode.fromParts([
-        'extension $extensionName on $functionName {\n',
-        '  $callBackName callback',
-        function.buildArgumentsCode,
-'''
-{
-    return () => this
-''',
-        function.buildArgumentsCodeForInput,
-'''
-;
-''',
-'''
-  }
-}
-''',
-      ]),
-    );
+  builder.declareType(
+    extensionName,
+    DeclarationCode.fromParts([
+      'extension $extensionName on $functionName {\n',
+      '  $callBackName callback',
+      function.buildArgumentsCode,
+      ' {\n',
+      '    return () => this',
+      function.buildArgumentsCodeForInput,
+      ';\n',
+      '  }\n',
+      '}\n',
+    ]),
+  );
   }
 }
 
