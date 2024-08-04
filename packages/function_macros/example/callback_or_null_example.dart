@@ -2,19 +2,19 @@
 
 import 'package:function_macros/callback_or_null.dart';
 
-@CallbackOrNull()
+@Callback()
 external String sampleA(
   String a, [
   String? b,
 ]);
 
-@CallbackOrNull()
+@Callback()
 external String sampleB(
   String a, {
   required String? b,
 });
 
-@CallbackOrNull()
+@Callback()
 external String _sampleC(
   String a,
 );
@@ -32,7 +32,7 @@ void main() {
 
 void demoSampleA() {
   SampleAFunction? sample;
-  final result1 = sample.callbackOrNull('a', 'b');
+  final result1 = sample?.callback('a', 'b');
   print(result1);
 
   sample = (
@@ -41,13 +41,13 @@ void demoSampleA() {
   ]) {
     return a + (b ?? '');
   };
-  final result2 = sample.callbackOrNull('a', 'b');
+  final result2 = sample?.callback('a', 'b');
   print(result2);
 }
 
 void demoSampleB() {
   SampleBFunction? sample;
-  final result1 = sample.callbackOrNull('a', b: 'b');
+  final result1 = sample?.callback('a', b: 'b');
   print(result1);
 
   sample = (
@@ -56,13 +56,13 @@ void demoSampleB() {
   }) {
     return a + (b ?? '');
   };
-  final result2 = sample.callbackOrNull('a', b: 'b');
+  final result2 = sample?.callback('a', b: 'b');
   print(result2);
 }
 
 void demoSampleC() {
   _SampleCFunction? sample;
-  final result1 = sample.callbackOrNull('a');
+  final result1 = sample?.callback('a');
   print(result1);
 
   sample = (
@@ -70,6 +70,6 @@ void demoSampleC() {
   ) {
     return a;
   };
-  final result2 = sample.callbackOrNull('a');
+  final result2 = sample?.callback('a');
   print(result2);
 }

@@ -2,11 +2,11 @@ import 'package:function_macros/callback_or_null.dart';
 import 'package:test/test.dart';
 
 void main() {
-  group('Generates sampleA a callbackOrNull method', () {
+  group('Generates sampleA a callback method', () {
     SampleAFunction? sample;
 
     test('Result is null', () {
-      final result = sample.callbackOrNull('a', 'b');
+      final result = sample?.callback('a', 'b');
       expect(result, isNull);
     });
 
@@ -17,16 +17,16 @@ void main() {
       ]) {
         return a + (b ?? '');
       };
-      final result = sample.callbackOrNull('a', 'b');
+      final result = sample?.callback('a', 'b');
       expect(result, isA<SampleACallback>());
     });
   });
 
-  group('Generates sampleB a callbackOrNull method', () {
+  group('Generates sampleB a callback method', () {
     SampleBFunction? sample;
 
     test('Result is null', () {
-      final result = sample.callbackOrNull('a', b: 'b');
+      final result = sample?.callback('a', b: 'b');
       expect(result, isNull);
     });
 
@@ -37,16 +37,16 @@ void main() {
       }) {
         return a + (b ?? '');
       };
-      final result = sample.callbackOrNull('a', b: 'b');
+      final result = sample?.callback('a', b: 'b');
       expect(result, isA<SampleBCallback>());
     });
   });
 
-  group('Generates sampleC a callbackOrNull method', () {
+  group('Generates sampleC a callback method', () {
     _SampleCFunction? sample;
 
     test('Result is null', () {
-      final result = sample.callbackOrNull('a');
+      final result = sample?.callback('a');
       expect(result, isNull);
     });
 
@@ -56,25 +56,25 @@ void main() {
       ) {
         return a;
       };
-      final result = sample.callbackOrNull('a');
+      final result = sample?.callback('a');
       expect(result, isA<_SampleCCallback>());
     });
   });
 }
 
-@CallbackOrNull()
+@Callback()
 external String sampleA(
   String a, [
   String? b,
 ]);
 
-@CallbackOrNull()
+@Callback()
 external String sampleB(
   String a, {
   required String? b,
 });
 
-@CallbackOrNull()
+@Callback()
 external String _sampleC(
   String a,
 );

@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:macros/macros.dart';
 
-macro class CallbackOrNull implements FunctionTypesMacro {
-  const CallbackOrNull();
+macro class Callback implements FunctionTypesMacro {
+  const Callback();
 
  @override
   Future<void> buildTypesForFunction(
@@ -13,7 +13,7 @@ macro class CallbackOrNull implements FunctionTypesMacro {
     if (!function.hasExternal) {
       final diagnostic = Diagnostic(
         DiagnosticMessage(
-          'The @CallbackOrNull() macro can only be used on external functions.',
+          'The @Callback() macro can only be used on external functions.',
         ),
         Severity.error,
       );
@@ -23,7 +23,7 @@ macro class CallbackOrNull implements FunctionTypesMacro {
     if (function.typeParameters.isNotEmpty) {
       final diagnostic = Diagnostic(
         DiagnosticMessage(
-          '''The @CallbackOrNull() macro does not support functions with type parameters.''',
+          '''The @Callback() macro does not support functions with type parameters.''',
         ),
         Severity.error,
       );
@@ -33,7 +33,7 @@ macro class CallbackOrNull implements FunctionTypesMacro {
     final originalFunctionName = function.identifier.name;
     final functionName = '${originalFunctionName.toCamelCase}Function';
     final callBackName = '${originalFunctionName.toCamelCase}Callback';
-    final extensionName = '${functionName}CallbackOrNull';
+    final extensionName = '${functionName}Callback';
 
     final returnTypeCode = function.returnType.code;
 
@@ -60,16 +60,12 @@ macro class CallbackOrNull implements FunctionTypesMacro {
     builder.declareType(
       extensionName,
       DeclarationCode.fromParts([
-        'extension $extensionName on $functionName? {\n',
-        '  $callBackName? callbackOrNull',
+        'extension $extensionName on $functionName {\n',
+        '  $callBackName callback',
         function.buildArgumentsCode,
 '''
 {
-    final tmp = this;
-    if (tmp == null) {
-      return null;
-    }
-    return () => tmp
+    return () => this
 ''',
         function.buildArgumentsCodeForInput,
 '''
