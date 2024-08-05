@@ -1,3 +1,4 @@
+import 'package:app/custom_button.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -9,10 +10,23 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
         body: Center(
-          child: Text('Hello World!'),
+          child: Column(
+            children: [
+              CustomButton(
+                text: 'NULL',
+                onPressed: null,
+              ),
+              CustomButton(
+                text: 'NOT NULL',
+                onPressed: (text) {
+                  print(text);
+                },
+              ),
+            ],
+          ),
         ),
       ),
     );
