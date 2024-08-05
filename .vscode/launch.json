@@ -2,7 +2,15 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Callback example",
+      "name": "app",
+      "cwd": "apps/app",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "type": "dart",
+      "toolArgs": ["--enable-experiment=macros"]
+    },
+    {
+      "name": "example Callback",
       "cwd": "packages/function_macros/example",
       "request": "launch",
       "program": "callback_example.dart",

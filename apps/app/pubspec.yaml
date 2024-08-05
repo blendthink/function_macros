@@ -5,15 +5,17 @@ version: 0.1.0
 
 environment:
   sdk: ^3.5.0-323.1.beta
+  flutter: ^3.24.0-0.1.pre
 
 dependencies:
   flutter:
     sdk: flutter
+  function_macros:
+    path: ../../packages/function_macros
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
 
 flutter:
   uses-material-design: true

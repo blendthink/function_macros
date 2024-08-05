@@ -19,6 +19,7 @@ command:
       test: ^1.25.8
 
 packages:
+  - apps/**
   - packages/**
 
 scripts:
